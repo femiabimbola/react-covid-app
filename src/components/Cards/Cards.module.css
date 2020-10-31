@@ -3,17 +3,22 @@
 }
 
 .card {
-  margin: 0 2% !important;
+  margin: 1% 1% !important;
 }
 
 .infected {
-  border-top: 10px solid rgba(255, 255, 0, 0.9);
-  border-bottom: 10px solid rgba(255, 255, 0, 0.9);
+  border-top: 10px solid rgba(0, 0, 255, 0.9);
+  border-bottom: 10px solid rgba(0, 0, 255, 0.9);
 }
 
 .recovered {
   border-top: 10px solid rgba(0, 255, 0, 0.9);
   border-bottom: 10px solid rgba(0, 255, 0, 0.9);
+}
+
+.active {
+  border-top: 10px solid rgba(255, 255, 0, 0.9);
+  border-bottom: 10px solid rgba(255, 255, 0, 0.9);
 }
 
 .deaths {

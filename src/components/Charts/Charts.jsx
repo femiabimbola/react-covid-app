@@ -10,9 +10,18 @@ const Charts = () => {
     useEffect(() => {
         const dailyDataApi = async () => setDailyData(await fetchDailyData());
         dailyDataApi();
+        console.log(dailyData)
     });
 
-    // const lineChart = ();
+    const lineChart = (
+        dailyData[0]  ?
+        (<Line 
+          data = {{
+            labels: '',
+            datasets: [{}, {}]
+          }}
+        />) : null
+    );
 
     return (
         <h3> The Charts Components </h3>

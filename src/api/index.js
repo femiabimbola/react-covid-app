@@ -25,6 +25,16 @@ export const fetchDailyData = async () => {
     return modifiedData
   }
   catch (error) {
-    new Error( ' Check your internet connection')
+    new Error( ' Check your internet connection');
+  }
+}
+
+export const countries  = async () => {
+  try {
+    const response = await axios.get(`${url}/countries`);
+    return response;
+  } catch (error) {
+    new Error( 'Check the internet connection')
+    
   }
 }

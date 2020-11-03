@@ -5,14 +5,19 @@ import styles from './CountryPicker.module.css';
 
 const CountryPicker = () => {
     
+    const [fetchedCountries, setFetchedCountries ] = useState([]);
+
     useEffect(() => {
-        const fetchCountries  = async () => await countries();
-    } )
-    return (
+        const countriesApi  = async () => setFetchedCountries(await countries());
+
+        countriesApi();
+    }, [setFetchedCountries] )
+
+    return ( 
         <FormControl className = {styles.formControl}>
             <NativeSelect> 
                 <option value = "global"> Global </option>
-
+                {fetchedCountries.map((country) => <option>{country}</option>)}
             </NativeSelect>
         </FormControl>
     )

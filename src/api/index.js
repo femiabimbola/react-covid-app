@@ -31,10 +31,9 @@ export const fetchDailyData = async () => {
 
 export const countries  = async () => {
   try {
-    const response = await axios.get(`${url}/countries`);
-    return response;
+    const {data: {countries}} = await axios.get(`${url}/countries`);
+    return countries.map((country) => country.name);
   } catch (error) {
-    new Error( 'Check the internet connection')
-    
+    new Error( 'Check the internet connection')   
   }
 }

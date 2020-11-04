@@ -17,7 +17,10 @@ class App extends React.Component{
   }
 
   changeCountryState = async (country) => {
-    console.log(country)
+    const fetchData = await fetchAll(country);
+    console.log(country);
+    console.log(fetchData)
+    return fetchData;
   }
  
     render(){

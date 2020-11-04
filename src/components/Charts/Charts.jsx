@@ -10,7 +10,7 @@ const Charts = () => {
     useEffect(() => {
         const dailyDataApi = async () => setDailyData(await fetchDailyData());
         dailyDataApi();
-    });
+    },[setDailyData] );
 
     const lineChart = (
         dailyData.length  ?

@@ -4,13 +4,13 @@ import { Line, Bar } from 'react-chartjs-2'
 
 import styles from './Charts.module.css';
 
-const Charts = ({data, country}) => {
+const Charts = ({data: {confirmed, deaths, recovered}, country}) => {
     const [ dailyData, setDailyData ] = useState([]);
  
     useEffect(() => {
         const dailyDataApi = async () => setDailyData(await fetchDailyData());
         dailyDataApi();
-    },[setDailyData] );
+    },[setDailyData ] );
 
     const lineChart = (
         dailyData.length  ?
@@ -34,7 +34,7 @@ const Charts = ({data, country}) => {
     );
 
     const barChart = (
-      data.confirmed ? (
+      confirmed ? (
         < Bar 
           data= {{
             labels: ['Infected', 'Recovered', 'Deaths'],
@@ -43,8 +43,9 @@ const Charts = ({data, country}) => {
               backgroundColor: [
                 'rgba(0, 0, 255, 0.5)',
                 'rgba(0, 255, 0, 0.5)',
-                'rgba(255, 0, 0, 0.5)'
-              ]
+                'rgba(255, 0, 0, 0.5)',
+              ],
+              data:[confirmed.value, recovered.value, deaths.value]
             }]
           }}
           options = {{
@@ -57,8 +58,7 @@ const Charts = ({data, country}) => {
 
     return (
       <div className = {styles.container}>
-        {lineChart}
-        {barChart}
+        {country ? barChart: lineChart}
       </div>
     )
 }
